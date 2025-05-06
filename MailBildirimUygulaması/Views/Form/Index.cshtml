@@ -1,0 +1,49 @@
+﻿@model List<MailBildirimUygulaması.Models.Formlar>
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-gradient bg-secondary ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text">Form Listesi</h2>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<div class="row pb-3">
+			<div class="col-6"></div>
+			<div class="col-6 text-end">
+			</div>
+		</div>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Uygulama</th>
+					<th>Yayın Tarihi</th>
+					<th>Kontrol Eden</th>
+					<th>Yayınlayan</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var form in Model.OrderBy(f => f.Uygulama == "Acil" ? 0
+									: f.Uygulama == "Normal Öncelik" ? 1
+									: 2)
+									.ThenBy(f => f.YayinTarihi))
+				{
+					<tr>
+						<td>@form.Uygulama</td>
+						<td>@form.YayinTarihi.ToString("dd/MM/yyyy")</td>
+						<td>@form.KontrolEden</td>
+						<td>@form.Yayınlayan</td>
+						<td>
+							<div class="w-75 btn-group" role="group">
+								<a asp-controller="Form" asp-action="FormDetail" asp-route-id="@form.FormID" class="btn btn-primary mx-2">
+									<i class="bi bi-eye-fill"></i> Oku
+								</a>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

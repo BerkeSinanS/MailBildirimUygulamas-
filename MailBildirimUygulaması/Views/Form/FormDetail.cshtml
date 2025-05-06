@@ -1,0 +1,100 @@
+﻿@model MailBildirimUygulaması.Models.Formlar
+<h1>Form Detayı</h1>
+
+<div>
+    <h4>Form</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Uygulama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Uygulama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Not)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Not)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YayinTarihi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YayinTarihi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DegisiklikNumarasi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DegisiklikNumarasi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Yayınlayan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Yayınlayan)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KontrolEden)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KontrolEden)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Onaylayan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Onaylayan)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bolum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bolum)
+        </dd>
+        <hr />
+        <div>
+            <h4>Eski ve Yeni Kodlar</h4>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Eski Kod</th>
+                        <th>Yeni Kod</th>
+                        <th>Adet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.EskiYeniKodlars != null && Model.EskiYeniKodlars.Any())
+                    {
+                        foreach (var kod in Model.EskiYeniKodlars)
+                        {
+                            <tr>
+                                <td>@kod.EskiKod</td>
+                                <td>@kod.YeniKod</td>
+                                <td>@kod.Adet</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3" class="text-center">Bu forma ait kod bilgisi bulunmamaktadır.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </dl>
+</div>
+<div class="col-6 col-md-3">
+    <a asp-controller="Form" asp-action="Index" class=" btn btn-outline-secondary border form-control">Listeye Dön</a>
+</div>
