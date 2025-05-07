@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace MailBildirimUygulaması.Models;
+namespace MailBildirimUygulamasi.Models;
 
 public partial class EskiYeniKodlar
 {

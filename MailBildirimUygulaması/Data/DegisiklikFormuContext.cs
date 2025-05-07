@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using MailBildirimUygulaması.Models;
+using MailBildirimUygulamasi.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MailBildirimUygulaması.Data;
+namespace MailBildirimUygulamasi.Data;
 
 public partial class DegisiklikFormuContext : DbContext
 {

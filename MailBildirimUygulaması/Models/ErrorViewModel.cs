@@ -1,4 +1,4 @@
-namespace MailBildirimUygulaması.Models
+namespace MailBildirimUygulamasi.Models
 {
     public class ErrorViewModel
     {

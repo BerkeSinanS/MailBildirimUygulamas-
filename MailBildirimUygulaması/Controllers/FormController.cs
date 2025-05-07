@@ -1,9 +1,9 @@
 ﻿using System.Net.Mail;
 using System.Net;
-using MailBildirimUygulaması.Data;
+using MailBildirimUygulamasi.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MailBildirimUygulaması.Models;
+using MailBildirimUygulamasi.Models;
 
 namespace MailBildirimUygulaması.Controllers
 {

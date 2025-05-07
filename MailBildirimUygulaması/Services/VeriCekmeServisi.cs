@@ -1,14 +1,15 @@
 ﻿using System.Net.Mail;
 using System.Net;
-using MailBildirimUygulaması.Data;
+using MailBildirimUygulamasi.Data;
 using System.Text;
 
 
-namespace MailBildirimUygulaması.Services
+namespace MailBildirimUygulamasi.Services
 {
 	public class VeriCekmeServisi : BackgroundService
 	{
 		private readonly IServiceScopeFactory _scopeFactory;
+        private readonly IConfiguration _configuration;
 
 		public VeriCekmeServisi(IServiceScopeFactory scopeFactory)
 		{
@@ -88,7 +89,9 @@ namespace MailBildirimUygulaması.Services
                                 
                                 using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
 								{
-									smtpClient.Credentials = new NetworkCredential("testmail6751@gmail.com", "fjtd lefq pmfr pywo"); 
+									smtpClient.Credentials = new NetworkCredential(
+                                        _configuration["MailSettings:Email"],
+                                        _configuration["MailSettings:Password"]); 
 									smtpClient.EnableSsl = true;
 									await smtpClient.SendMailAsync(mailMessage);
 								}

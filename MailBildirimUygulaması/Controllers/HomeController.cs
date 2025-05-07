@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using MailBildirimUygulaması.Models;
+using MailBildirimUygulamasi.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MailBildirimUygulaması.Controllers
+namespace MailBildirimUygulamasi.Controllers
 {
     public class HomeController : Controller
     {
